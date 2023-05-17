@@ -27,8 +27,24 @@ public class Main {
         int currentIndex = 0;
 
 
-
+        int valOfZz = 0;
+        boolean isValAfterZz = false;
         while (currentIndex < valuesArr.size()) {
+
+            if(26 == valuesArr.get(currentIndex)){
+                valOfZz += valuesArr.get(currentIndex);
+                isValAfterZz = true;
+                currentIndex++;
+            }
+            else {
+                if(isValAfterZz){
+
+                    isValAfterZz = false;
+                }else {
+
+                }
+            }
+
             int num = valuesArr.get(currentIndex);
 
             int sum = 0;
