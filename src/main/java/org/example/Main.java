@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> valuesArr = new ArrayList<>();
 
-        String word = "azbcaaa";
+        String word = "dz_a_aazzaaa";
         int value = 0;
         for (int i = 0; i < word.length(); i++) {
             char letter = word.charAt(i);
@@ -18,6 +18,7 @@ public class Main {
             if(letter == '_'){
                 value = 0;
             }
+
             //System.out.println(value);
             valuesArr.add(value);
         } // here I convert the characters into numbers
@@ -25,15 +26,36 @@ public class Main {
         List<Integer> encodedArr = new ArrayList<>();
         int currentIndex = 0;
 
+
+
         while (currentIndex < valuesArr.size()) {
             int num = valuesArr.get(currentIndex);
 
             int sum = 0;
 
+            boolean isValAfterZ = false;
+            int valsOfZ = 0;
             for (int i = currentIndex + 1; i <= currentIndex + num; i++) {
-                if (i < valuesArr.size()) {
-                    sum += valuesArr.get(i);
+                if(26 == valuesArr.get(i)){
+                    valsOfZ+=valuesArr.get(i);
+                    isValAfterZ = true;
+                    currentIndex++;
                 }
+                else {
+                    if(isValAfterZ){
+                        if (i < valuesArr.size()) {
+                            sum += valuesArr.get(i)+valsOfZ;
+                            isValAfterZ = false;
+
+                        }
+                    }
+                    else{
+                        if (i < valuesArr.size()) {
+                            sum += valuesArr.get(i);
+                        }
+                    }
+                }
+
             }
 
             encodedArr.add(sum);
