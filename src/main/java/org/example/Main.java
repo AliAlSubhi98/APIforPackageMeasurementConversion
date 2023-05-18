@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> valuesArr = new ArrayList<>();
 
-        String word = "dz_a_aazzaaa";
+        String word = "abcdabcdab_";
         int value = 0;
         for (int i = 0; i < word.length(); i++) {
             char letter = word.charAt(i);
@@ -59,11 +59,8 @@ public class Main {
                 }
                 else {
                     if(isValAfterZ){
-                        if (i < valuesArr.size()) {
                             sum += valuesArr.get(i)+valsOfZ;
                             isValAfterZ = false;
-
-                        }
                     }
                     else{
                         if (i < valuesArr.size()) {
